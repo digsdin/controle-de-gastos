@@ -1,100 +1,113 @@
+/* 1. Variáveis Globais e Reset */
+:root {
+    --primary-color: #00bcd4; /* Tom de azul (aqua) */
+    --primary-color-hover: #ffffff;
+    --background-color: #f4f4f4;
+    --surface-color: #ffffff;
+    --text-color: #333;
+    --border-radius: 8px;
+    --box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    --transition-speed: 0.3s;
+}
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
+
+/* 2. Layout Geral do Corpo da Página */
 body {
     font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    color: #333;
+    background-color: var(--background-color);
+    color: var(--text-color);
     line-height: 1.6;
-    padding: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    flex-direction: column;
-    text-align: center;
+    min-height: 100vh;
+    padding: 20px;
 }
-h1 {
-    margin-bottom: 20px;
-    color: #2c3e50;
-    text-shadow: #333 1px 1px 2px;
-}
+
+/* 3. Container Principal (o card da aplicação) */
 section {
-    margin-bottom: 20px;
-    padding: 20px;
-    background-color: #ffffff;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    border-color: aqua;
-    border-style: solid;
-    border-width: 2px;
-    width: 120%;
-    margin: 20px auto;
+    background-color: var(--surface-color);
+    padding: 25px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    border: 2px solid var(--primary-color);
+    width: 90%;
+    max-width: 450px;
     text-align: center;
 }
 
-
-.container {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    width: 90%;
-    max-width: 600px;
-    margin: 20px auto;
+h1 {
+    margin-bottom: 25px;
+    color: #2c3e50;
+    text-shadow: #333 1px 1px 1px;
 }
+
+/* 4. Estilos do Formulário */
 form {
     display: flex;
     flex-direction: column;
-    gap: 5px;
+    gap: 15px; /* Espaçamento entre os elementos do formulário */
+    margin-bottom: 20px;
 }
-input {
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+
+/* Estilo comum para input e select */
+input[type="number"],
+select {
+    padding: 12px;
+    border: 2px solid var(--primary-color);
+    border-radius: var(--border-radius);
     width: 100%;
-    margin-bottom: 10px;
     text-align: center;
+    font-size: 1em;
+    transition: border-color var(--transition-speed), box-shadow var(--transition-speed);
 }
+
+/* Feedback visual ao focar no elemento */
+input[type="number"]:focus,
+select:focus {
+    outline: none;
+    border-color: #2c3e50;
+    box-shadow: 0 0 5px rgba(0, 188, 212, 0.5);
+}
+
 button {
-    padding: 10px;
-    background-color: aqua;
+    padding: 12px;
+    background-color: var(--primary-color);
     color: black;
-    border: none;
-    border-radius: 4px;
+    border: 2px solid transparent; /* Adiciona borda transparente para não "pular" no hover */
+    border-radius: var(--border-radius);
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: all var(--transition-speed) ease;
     font-size: large;
+    font-weight: bold;
 }
-button:hover {
-    background-color: #ffffff;
-    color: #00bcd4;
-    border: #00bcd4 2px solid;
+
+button:hover,
+button:focus {
+    outline: none;
+    background-color: var(--primary-color-hover);
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
 }
+
+/* 5. Estilos dos Parágrafos de Resultado */
 p {
     margin: 10px 0;
     font-size: 1.2em;
-    border: aqua 2px solid;
+    border: 2px solid var(--primary-color);
     padding: 10px;
-    border-radius: 4px;
-    transition: all 0.3s ease;
-}
-p:hover {
-    transform: scale(1.05);
-}
-input[type="number"] {
-    width: 100%;
-    margin: 0 auto;
-    border: aqua 2px solid;
-}
-select {
-    padding: 10px;
-    border: 2px solid aqua;
-    border-radius: 4px;
-    width: 100%;
-    margin-bottom: 10px;
-    text-align: center;
+    border-radius: var(--border-radius);
+    transition: all var(--transition-speed) ease;
+    background-color: #f9f9f9;
 }
 
+p:hover {
+    transform: scale(1.05);
+    background-color: var(--surface-color);
+    box-shadow: var(--box-shadow);
+}
